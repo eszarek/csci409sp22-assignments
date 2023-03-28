@@ -1,0 +1,52 @@
+<!-- Specify which template to extend -->
+{% extends 'base.html' %}
+
+<!-- Add content to the content block in the main template -->
+{% block content %}
+<h1>Confirmation Number- {{ confirmation_number }}</h1>
+<table class="table">
+    <tr>
+        <td><strong>Number of People</strong></td>
+        <td>{{ reservation.num_people}}</td>
+    </tr>
+    <tr>
+        <td><strong>Total Cost</strong></td>
+        <td>{{ reservation.total_cost}}</td>
+    </tr>
+</table>
+<!-- 5 Extra Credit Points  Create a table that displays the flight information -->
+<!-- This should display the airline, flight number, arrival and departure airports, and arrival and departure times -->
+<h1>Flight Information</h1>
+<table class="table">
+    <tr>
+        <td><strong>Airline and Flight Number</strong></td>
+        <td>{{ flight.airline.airline_code }}-{{ flight.flight_number }}</td>
+    </tr>
+    <tr>
+        <td><strong>Departure Airport and Time</strong></td>
+        <td>{{ flight.origin.airport_code }}-{{ flight.departure }}</td>
+    </tr>
+    <tr>
+        <td><strong>Arrival Airport and Time</strong></td>
+        <td>{{ flight.destination.airport_code }}-{{flight.arrival}}</td>
+    </tr>
+</table>
+<!-- 5 Extra Credit Points Create a table that displays the ticket information -->
+
+<h1>Ticket Information</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th><strong>Seat</strong></th>
+        <th><strong>Ticket Class</strong></th>
+        <th><strong>Ticket Cost</strong></th>
+    </tr>
+    <tr>
+        <td>{{ Ticket.seat }}</td>
+        <td>{{ Ticket.ticket_class }}</td>
+        <td>{{ Ticket.cost }}</td>
+    </tr>
+    </thead>
+</table>
+
+{% endblock %}

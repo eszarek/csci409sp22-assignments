@@ -8,12 +8,14 @@ from . import views
 
 # define URL pattern
 urlpatterns = [
-    # get index view
-    # Starting with airports/
+    # Get index view
+    # Example url: /airports/
     path('', views.index),
+    # Show Airport info
+    # Example url /airports/MYR
+    # NOTICE: the airport_code parameter in the url matches
+    #       the parameter in the airport_info function
+    path('/search/<str:origin>/<str:destination>/', views.flight_search),
 
-    # Show import info by code
-    # uri /flight/search/MYR/ATL
-    # airport parameter in URL matches airport_info function
-    path('search/<str:origin>/<str:destination>', views.flight_search),
+    path('search/', views.search),
 ]

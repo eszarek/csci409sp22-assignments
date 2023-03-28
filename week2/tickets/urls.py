@@ -16,4 +16,6 @@ urlpatterns = [
     # uri /flight/search/MYR/ATL
     # airport parameter in URL matches airport_info function
     path('<str:confirmation_number>', views.ticket_search),
+
+    path('search/', views.search),
 ]

@@ -2,8 +2,10 @@ from django.http import HttpResponse
 from .models import Reservation
 from .forms import TicketForm
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def index(request):
     # instance of ticket form
     form = TicketForm()
@@ -12,6 +14,7 @@ def index(request):
     return render(request, 'tickets/index.html', {'form': form})
 
 
+@login_required
 def search(request):
     form = TicketForm(request.POST)
     if form.is_valid():
